@@ -48,16 +48,18 @@ Backend: Node.js with Express, Knex, MySQL, and JWT
 ### Sitemap
 
 - Home page which contains each user's wish list as a "dashboard"
-- Add new item page 
+- Profile page which contains a user's profile pics, special dates, and details
+- Add New Item page 
+- Item Details page
 - Edit / Delete item page
 
 ### Mockups
 
-![](Assets/README%20Assets/homePage_capstone.jpg) 
-![](Assets/README%20Assets/profilePage_capstone.jpg) 
-![](Assets/README%20Assets/addItemPage_capstone.jpg) 
-![](Assets/README%20Assets/itemDetailsPage_capstone.jpg) 
-![](Assets/README%20Assets/editItemPage_capstone.jpg)
+![](src/assets/sitemap/homePage_capstone.JPG/) 
+![](src/assets/sitemap/profilePage_capstone.JPG) 
+![](src/assets/sitemap/addItemPage_capstone.JPG) 
+![](src/assets/sitemap/itemDetailsPage_capstone.JPG)
+![](src/assets/sitemap/editItemPage_capstone.JPG)
 
 
 
