@@ -51,5 +51,13 @@ Backend: Node.js with Express, Knex, MySQL, and JWT
 - Add new item page 
 - Edit / Delete item page
 
+### Mockups
+
+![](homePage_capstone.jpg)
+![](profilePage_capstone.jpg)
+![](addItemPage_capstone.jpg)
+![](itemDetailsPage_capstone.jpg)
+![](editItemPage_capstone.jpg)
+
 
 
