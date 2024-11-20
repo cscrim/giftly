@@ -62,4 +62,7 @@ Backend: Node.js with Express, Knex, MySQL, and JWT
 ![](src/assets/sitemap/editItemPage_capstone.JPG)
 
 
+### DB Schema
+
+![](src/assets/sitemap/dbschema_capstone.JPG)
 
