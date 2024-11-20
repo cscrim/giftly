@@ -53,11 +53,11 @@ Backend: Node.js with Express, Knex, MySQL, and JWT
 
 ### Mockups
 
-![](homePage_capstone.jpg)
-![](profilePage_capstone.jpg)
-![](addItemPage_capstone.jpg)
-![](itemDetailsPage_capstone.jpg)
-![](editItemPage_capstone.jpg)
+![](Assets/README\ Assets/homePage_capstone.jpg)
+![](Assets/README\ Assets/profilePage_capstone.jpg)
+![](Assets/README\ Assets/addItemPage_capstone.jpg)
+![](Assets/README\ Assets/itemDetailsPage_capstone.jpg)
+![](Assets/README\ Assets/editItemPage_capstone.jpg)
 
 
 
