@@ -39,10 +39,10 @@ Backend: Node.js with Express, Knex, MySQL, and JWT
 
 ### APIs
 
-Get /wishlist (or maybe just /) to fetch the wish list items of the user (this would be the user's home page)
-Post /wishlist to add a new wish list item to your list
-Edit /wishlist/:id to edit the details of an existing item in the list
-Delete /wishlist/:id to remove a specific item on your list
+- Get /wishlist (or maybe just /) to fetch the wish list items of the user (this would be the user's home page)
+- Post /wishlist to add a new wish list item to your list
+- Edit /wishlist/:id to edit the details of an existing item in the list
+- Delete /wishlist/:id to remove a specific item on your list
 
 
 ### Sitemap
