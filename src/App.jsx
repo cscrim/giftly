@@ -9,10 +9,13 @@ import './App.scss'
 
 
 
+
+
 function App() {
 
 
   return (
+  
     <BrowserRouter>
     <Header />
     <Routes>
@@ -21,9 +24,10 @@ function App() {
       <Route path="/add" element={<AddItem />} />
       <Route path="/edit/:id" element={<EditItem />} />
       <Route path="/details/:id" element={<ItemDetails />} />
-      <Route path="*" element={<NotFound />} />
+      {/* <Route path="*" element={<NotFound />} /> */}
     </Routes>
     </BrowserRouter>
+ 
   )
 }
 

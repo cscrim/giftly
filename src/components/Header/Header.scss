@@ -1,0 +1,22 @@
+@use '../../styles/partials/variables' as *;
+
+.header__container {
+    background-color: $primary-purple;
+    display: flex;
+    align-items: center;
+    // border-bottom: 4px solid $secondary-accent;
+}
+
+.header__logo-container {
+    margin-left: 2rem;
+}
+
+.header__logo {
+    width: 100px;
+    height: auto;
+}
+
+.header__title {
+    color: white;
+    font-weight: 300;
+}
