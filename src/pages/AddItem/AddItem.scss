@@ -1,0 +1,27 @@
+@use "../../styles/partials/variables" as *;
+
+main {
+  background-color: $secondary-purple-light;
+  min-height: 100vh;
+}
+
+.add__header-container {
+    display: flex;
+    padding-left:4rem;
+    padding-top:4rem;
+    align-items: center;
+}
+
+.add__title {
+    font-size: 3rem;
+    font-weight: 500;
+    color: white;
+    padding-left: 1rem;
+}
+
+.back-arrow {
+    width: 2.5rem;  
+    height: 2.5rem;
+    cursor: pointer; 
+   
+  }

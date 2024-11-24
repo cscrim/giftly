@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import axios from "axios";
-import "./Home.scss";
 import profilePic from "../../assets/profile-pic.png";
+import "./Home.scss";
 
 function Home() {
   const [wishlistItems, setWishlistItems] = useState([]);
@@ -33,18 +34,19 @@ function Home() {
           <img src={profilePic} alt="profile" className="courtneys-pic" />
         </div>
         <div className="profile__text-container">
-          <h1 className="profile__text">Your Wish List</h1>
+          <h1 className="profile__text">courtney's wish list</h1>
         </div>
       </section>
 
       <section className="gifts-container">
         <div className="card-container">
-          {/* Add Item Section */}
+         
           <div className="add-item-container">
-            <button className="add-item-button">+ Add Item</button>
+            <Link to ="/add">
+            <button className="add-item-button">+ add item</button>
+            </Link>
           </div>
 
-          {/* Render wishlist items */}
           {wishlistItems.map((item) => (
             <div key={item.item_id} className="card">
               <div className="card-image-container">

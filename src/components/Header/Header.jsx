@@ -7,7 +7,9 @@ function Header() {
   return (
     <header className="header__container">
       <div className="header__logo-container">
+        <Link to= "/">
         <img src={logo} alt="giftly-brand-logo" className="header__logo" />
+        </Link> 
       </div>
       <div className="header__title-container">
         <h1 className="header__title">
