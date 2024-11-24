@@ -22,8 +22,8 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/profile" element={<UserProfile />} />
       <Route path="/add" element={<AddItem />} />
-      <Route path="/edit/:id" element={<EditItem />} />
-      <Route path="/details/:id" element={<ItemDetails />} />
+      <Route path="/edit/:item_id" element={<EditItem />} />
+      <Route path="/details/:item_id" element={<ItemDetails />} />
       {/* <Route path="*" element={<NotFound />} /> */}
     </Routes>
     </BrowserRouter>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import axios from "axios";
 import profilePic from "../../assets/profile-pic.png";
 import "./Home.scss";
@@ -15,7 +15,7 @@ function Home() {
       setWishlistItems(response.data);
     } catch (err) {
       console.error(err);
-    } 
+    }
   };
 
   useEffect(() => {
@@ -26,16 +26,13 @@ function Home() {
     <main>
       <section className="profile-container">
         <Link to="/profile" className="profile__picture-selected">
-        <div className="profile__picture-container">
-          <img src={profilePic} alt="profile" className="courtneys-pic" />
-          <div className="hover-text">
-            <p>profile</p>
+          <div className="profile__picture-container">
+            <img src={profilePic} alt="profile" className="courtneys-pic" />
+            <div className="hover-text">
+              <p>profile</p>
+            </div>
           </div>
-        </div>
         </Link>
-
-
-
 
         <div className="profile__text-container">
           <h1 className="profile__text">your wish list</h1>
@@ -44,26 +41,27 @@ function Home() {
 
       <section className="gifts-container">
         <div className="card-container">
-         
           <div className="add-item-container">
-            <Link to ="/add">
-            <button className="add-item-button">+ add item</button>
+            <Link to="/add">
+              <button className="add-item-button">+ add item</button>
             </Link>
           </div>
 
           {wishlistItems.map((item) => (
             <div key={item.item_id} className="card">
-              <div className="card-image-container">
-                <img
-                  src={item.item_img}
-                  alt={item.item_name}
-                  className="card-image"
-                />
-              </div>
+              <Link to={`/details/${item.item_id}`} className="card-link">
+                <div className="card-image-container">
+                  <img
+                    src={item.item_img}
+                    alt={item.item_name}
+                    className="card-image"
+                  />
+                </div>
 
-              <div className="card-title">{item.item_name}</div>
-              <div className="card-description">{item.description}</div>
-              <div className="card-price">${item.price}</div>
+                <div className="card-title">{item.item_name}</div>
+                <div className="card-description">{item.description}</div>
+                <div className="card-price">${item.price}</div>
+              </Link>
 
               <button
                 className="card-button"

@@ -151,7 +151,7 @@ main {
 
   .card-description {
     font-size: 14px;
-    margin-bottom: 10px;
+    margin-bottom: 2rem;
   }
 
   .card-price {
@@ -170,4 +170,13 @@ main {
     color: white;
     cursor: pointer;
   }
+
+  .card-button:hover {
+    background-color: $primary-accent-dark;
+  }
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
 }

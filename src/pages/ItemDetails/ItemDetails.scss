@@ -1,0 +1,89 @@
+@use "../../styles/partials/variables" as *;
+
+main {
+  background-color: $secondary-purple-light;
+  min-height: 100vh;
+}
+
+.add__header-container {
+  display: flex;
+  padding-left: 4rem;
+  padding-top: 4rem;
+  align-items: center;
+}
+
+.add__title {
+  font-size: 3rem;
+  font-weight: 500;
+  color: $primary-black;
+  padding-left: 1rem;
+}
+
+.back-arrow {
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+.details__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 2rem;
+}
+
+.details__image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  border: 2px dashed $primary-purple;
+  border-radius: 5px;
+}
+
+.details__image {
+  max-width: 500px;
+  max-height: 500px;
+  object-fit: contain;
+  border: 1px solid #ddd;
+  margin-bottom: 1rem;
+}
+
+.details__image-placeholder {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.details__info-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  padding-top: 2rem;
+}
+
+.details__info-group {
+  margin-bottom: 1rem;
+}
+
+.details__label {
+  font-weight: 400;
+  margin-bottom: 0.75rem;
+  display: flex;
+}
+
+.details__text {
+  font-size: 1rem;
+  color: $primary-black;
+}
+
+.details__link {
+  font-size: 1rem;
+  color: $primary-accent-dark;
+  text-decoration: none;
+}
+
+.details__link:hover {
+  text-decoration: underline;
+}
