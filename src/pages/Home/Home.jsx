@@ -6,8 +6,6 @@ import "./Home.scss";
 
 function Home() {
   const [wishlistItems, setWishlistItems] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   const baseUrl = "http://localhost:8080";
 
@@ -16,11 +14,8 @@ function Home() {
       const response = await axios.get(`${baseUrl}/wishlist`);
       setWishlistItems(response.data);
     } catch (err) {
-      setError("Failed to fetch wishlist items");
       console.error(err);
-    } finally {
-      setLoading(false);
-    }
+    } 
   };
 
   useEffect(() => {

@@ -15,7 +15,7 @@ main {
 .add__title {
     font-size: 3rem;
     font-weight: 500;
-    color: white;
+    color: #211f20;
     padding-left: 1rem;
 }
 
@@ -25,3 +25,57 @@ main {
     cursor: pointer; 
    
   }
+
+
+
+  .upload__container {
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .upload__image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .upload__image-preview {
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+  }
+  
+  
+  .upload__submit-button {
+    background-color: #6fa69c;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .upload__details-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 2rem;
+  }
+  
+  .upload__input {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+
