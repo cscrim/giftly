@@ -35,7 +35,7 @@ function Home() {
         </Link>
 
         <div className="profile__text-container">
-          <h1 className="profile__text">your wish list</h1>
+          <h1 className="profile__text">My Wish List</h1>
         </div>
       </section>
 

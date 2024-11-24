@@ -24,11 +24,11 @@ function AddItem() {
     if (utils.verifyImageFile(file)) {
       setImageFile(file);
       const reader = new FileReader();
-      reader.onloadend = () => setImageSrc(reader.result); // set image preview
+      reader.onloadend = () => setImageSrc(reader.result); 
       reader.readAsDataURL(file);
     } else {
-      setImageFile(null); // reset if invalid file
-      setImageSrc(""); // reset image preview
+      setImageFile(null); 
+      setImageSrc(""); 
     }
   };
 
@@ -71,7 +71,7 @@ function AddItem() {
         <Link to="/">
           <img src={backArrow} alt="back-arrow" className="back-arrow" />
         </Link>
-        <h1 className="add__title">add a new gift</h1>
+        <h1 className="add__title">Add a New Gift</h1>
       </div>
 
       <form onSubmit={handleSubmit}>
@@ -103,7 +103,7 @@ function AddItem() {
             </div>
           </div>
 
-          {/* Input fields for other form data */}
+
           <div className="upload__details-container">
             <div className="upload__input-group">
               <label htmlFor="item-name" className="upload__label">

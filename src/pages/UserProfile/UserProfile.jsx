@@ -76,11 +76,11 @@ function UserProfile() {
 
           <div className="profile__detail">
             <label className="profile__label">Hobbies</label>
-            <div className="profile__value">Reading, Traveling, Cooking</div>
+            <div className="profile__value">Mechanical Keyboards, Motorsports, Pokémon</div>
           </div>
           <div className="profile__detail">
-            <label className="profile__label">Interests</label>
-            <div className="profile__value">Technology, Photography, Music</div>
+            <label className="profile__label">Sizes</label>
+            <div className="profile__value">Shoes: 6, Clothing: XS</div>
           </div>
         </div>
       </section>
