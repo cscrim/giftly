@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import utils from '../../utils';
+import utils from "../../utils";
 import backArrow from "../../assets/back_arrow.png";
-import logo from '../../assets/giftly_logo.png'
+import logo from "../../assets/giftly_logo.png";
 import "./AddItem.scss";
 
 function AddItem() {
@@ -47,11 +47,10 @@ function AddItem() {
     formData.append("purchase_link", purchaseLink);
     formData.append("item_img", imageFile); // this should be the URL returned from the image upload
 
-
     try {
       const response = await axios.post(`${baseUrl}/wishlist/add`, formData, {
         headers: {
-          "Content-Type": "multipart/form-data", 
+          "Content-Type": "multipart/form-data",
         },
       });
 
@@ -75,64 +74,95 @@ function AddItem() {
         <h1 className="add__title">add a new gift</h1>
       </div>
 
-
-
       <form onSubmit={handleSubmit}>
         <div className="upload__container">
-          <div className="upload__image-container">
-            {imageSrc ? (
-              <img
-                src={imageSrc}
-                alt="Image Preview"
-                className="upload__image-preview"
+          <div className="upload__image-wrapper">
+            <div className="upload__image-container">
+              {imageSrc ? (
+                <img
+                  src={imageSrc}
+                  alt="Image Preview"
+                  className="upload__image-preview"
+                />
+              ) : (
+                <img
+                  src={logo}
+                  alt="giftly-logo-outline"
+                  className="upload-placeholder"
+                />
+              )}
+            </div>
+
+            <div className="upload__button-container">
+              <input
+                type="file"
+                accept="image/jpeg, image/png"
+                onChange={onFileSelect}
+                className="upload__image-input"
               />
-            ) : (
-              <img src={logo} alt="giftly-logo-outline" className="upload-placeholder" />
-            )}
-            <input
-              type="file"
-              accept="image/jpeg, image/png"
-              onChange={onFileSelect}
-              className="upload__image-input"
-            />
+            </div>
           </div>
 
-
-
+          {/* Input fields for other form data */}
           <div className="upload__details-container">
+            <div className="upload__input-group">
+              <label htmlFor="item-name" className="upload__label">
+                Item Name
+              </label>
+              <input
+                type="text"
+                id="item-name"
+                value={itemName}
+                onChange={(e) => setItemName(e.target.value)}
+                required
+                className="upload__input"
+              />
+            </div>
 
-          <input
-              type="text"
-              placeholder="Item Name"
-              value={itemName}
-              onChange={(e) => setItemName(e.target.value)}
-              required
-              className="upload__input"
-            />
-            <input
-              type="number"
-              placeholder="Price"
-              value={itemPrice}
-              onChange={(e) => setItemPrice(e.target.value)}
-              required
-              className="upload__input"
-            />
-            <textarea
-              placeholder="Description"
-              value={itemDescription}
-              onChange={(e) => setItemDescription(e.target.value)}
-              className="upload__input"
-            />
-            <input
-              type="url"
-              placeholder="Link to Buy"
-              value={purchaseLink}
-              onChange={(e) => setPurchaseLink(e.target.value)}
-              className="upload__input"
-            />
+            <div className="upload__input-group">
+              <label htmlFor="price" className="upload__label">
+                Price
+              </label>
+              <input
+                type="number"
+                id="price"
+                value={itemPrice}
+                onChange={(e) => setItemPrice(e.target.value)}
+                required
+                className="upload__input"
+              />
+            </div>
 
+            <div className="upload__input-group">
+              <label htmlFor="description" className="upload__label">
+                Description
+              </label>
+              <textarea
+                id="description"
+                value={itemDescription}
+                onChange={(e) => setItemDescription(e.target.value)}
+                className="upload__input description-input"
+              />
+            </div>
 
+            <div className="upload__input-group">
+              <label htmlFor="purchase-link" className="upload__label">
+                Link to Buy
+              </label>
+              <input
+                type="url"
+                id="purchase-link"
+                value={purchaseLink}
+                onChange={(e) => setPurchaseLink(e.target.value)}
+                className="upload__input"
+              />
+            </div>
 
+            <div className="submit-button-container">
+              <button type="submit" className="submit-button">
+                SUBMIT
+              </button>
+            </div>
           </div>
         </div>
       </form>
@@ -141,3 +171,5 @@ function AddItem() {
 }
 
 export default AddItem;
+
+

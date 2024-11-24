@@ -9,29 +9,55 @@ main {
   display: flex;
   align-items: center;
   gap: 4rem;
+}
 
-  .profile__picture-container {
-    width: 12.5rem;
-    height: 12.5rem;
-    margin-left: 2.5rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-    display: inline-block;
+.profile__picture-container {
+  width: 12.5rem;
+  height: 12.5rem;
+  margin-left: 2.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative; /* For positioning the hover text */
+  display: inline-block;
+  border: 2px solid white;
+  padding: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(145deg, $primary-purple, $primary-accent-dark);
+  border-radius: 5%;
+  overflow: hidden; /* Ensure the text stays within the container */
 
-    border: 2px solid white;
-    padding: 15px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(145deg, $primary-purple, $primary-accent-dark);
-    border-radius: 5%;
-    position: relative;
-  }
-
-  .profile__picture-container img {
+  .courtneys-pic {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 10%;
     display: block;
+    transition: opacity 0.3s ease; /* Smooth transition for the dimming effect */
+  }
+
+  .hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: 300;
+    color: $primary-cream;
+    opacity: 0;  
+    transition: opacity 0.3s ease; 
+    z-index: 2;  
+  }
+
+  &:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);  
+  }
+
+  &:hover .courtneys-pic {
+    opacity: 0.2;  
+  }
+
+  &:hover .hover-text {
+    opacity: 1;  
   }
 }
 
@@ -43,9 +69,7 @@ main {
   .profile__text {
     font-weight: 600;
     font-size: 3rem;
-    color: white;
-    
-    
+    color: $primary-black;
   }
 }
 
@@ -75,6 +99,11 @@ main {
   border-radius: 5px;
   cursor: pointer;
   color: $highlight-purple;
+  font-weight: 400;
+
+  &:hover {
+    font-weight: 700;
+  }
 }
 
 .card {

@@ -25,11 +25,20 @@ function Home() {
   return (
     <main>
       <section className="profile-container">
+        <Link to="/profile" className="profile__picture-selected">
         <div className="profile__picture-container">
           <img src={profilePic} alt="profile" className="courtneys-pic" />
+          <div className="hover-text">
+            <p>profile</p>
+          </div>
         </div>
+        </Link>
+
+
+
+
         <div className="profile__text-container">
-          <h1 className="profile__text">courtney's wish list</h1>
+          <h1 className="profile__text">your wish list</h1>
         </div>
       </section>
 
