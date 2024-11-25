@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import backArrow from "../../assets/back_arrow.png";
-import ItemDeleteModal from '../../components/ItemDeleteModal/ItemDeleteModal';
+import ItemDeleteModal from "../../components/ItemDeleteModal/ItemDeleteModal";
 import "./ItemDetails.scss";
 
 function ItemDetails() {
   const { item_id } = useParams();
   const [item, setItem] = useState(null);
-
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+  const navigate = useNavigate();
 
   const baseUrl = "http://localhost:8080";
 
@@ -35,7 +36,7 @@ function ItemDetails() {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`${baseUrl}/wishlist/details/${id}`);
-      navigate = "/"; 
+      navigate = "/";
     } catch (error) {
       console.error("Error deleting item:", error);
     }
@@ -53,13 +54,11 @@ function ItemDetails() {
       <div className="details__container">
         <div className="details__image-wrapper">
           <div className="details__image-container">
-
-          <img
-              src={item.item_img}
+            <img
+              src={`${baseUrl}${item.item_img}`}
               alt={item.item_name}
               className="details__image"
             />
-           
           </div>
         </div>
 
@@ -91,9 +90,11 @@ function ItemDetails() {
             </a>
           </div>
 
-        {/* Buttons for Edit and Delete */}
-        <div className="details__buttons-container">
-            <Link to={`/edit/${item_id}`} className="details__button edit-button">
+          <div className="details__buttons-container">
+            <Link
+              to={`/edit/${item_id}`}
+              className="details__button edit-button"
+            >
               Edit Item
             </Link>
             <button
@@ -103,21 +104,16 @@ function ItemDetails() {
               Delete Item
             </button>
           </div>
-
         </div>
       </div>
 
-
-    {/* Delete Confirmation Modal */}
-    <ItemDeleteModal
+      <ItemDeleteModal
         isOpen={showDeleteModal}
         onClose={() => setShowDeleteModal(false)}
         onDelete={handleDelete}
         itemId={item_id}
         itemName={item.item_name}
       />
-
-
     </main>
   );
 }

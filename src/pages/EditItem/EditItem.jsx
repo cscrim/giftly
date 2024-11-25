@@ -1,12 +1,15 @@
-import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import "./EditItem.scss";
+import backArrow from "../../assets/back_arrow.png";
+import "./EditItem.scss"; 
 
 function EditItem() {
-  const { item_id } = useParams();  // Get the item_id from the URL
+  const { item_id } = useParams();
+  const navigate = useNavigate();
+
   const [item, setItem] = useState(null);
-  const navigate = useNavigate();  // Hook for navigation
+  const [selectedImage, setSelectedImage] = useState(""); 
 
   const baseUrl = "http://localhost:8080";
 
@@ -15,83 +18,156 @@ function EditItem() {
       try {
         const response = await axios.get(`${baseUrl}/wishlist/details/${item_id}`);
         setItem(response.data);
+
+  
+        setSelectedImage(response.data.item_img);
       } catch (error) {
         console.error("Error fetching item details:", error);
-        // You could display an error message here for better UX.
       }
     };
 
     fetchItemDetails();
   }, [item_id]);
 
-  // If item data is still loading, display a loading message
-  if (!item) {
-    return <div>Loading...</div>;
-  }
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
+    const formData = {
+      item_name: item.item_name,
+      price: item.price,
+      description: item.description,
+      purchase_link: item.purchase_link,
+      item_img: selectedImage,  
+    };
+  
     try {
-      // Send the updated item data to the server
-      await axios.put(`${baseUrl}/wishlist/edit/${item_id}`, item);
-      navigate(`/details/${item_id}`);  // Redirect to the item details page after edit
+    
+      const response = await axios.put(`${baseUrl}/wishlist/edit/${item_id}`, formData, {
+        headers: {
+          "Content-Type": "application/json", 
+        },
+      });
+  
+      navigate("/");
     } catch (error) {
       console.error("Error updating item:", error);
+      alert("There was an error updating the item.");
     }
+  };
+
+  const handleImageChange = (e) => {
+    const imagePath = e.target.value;
+    setSelectedImage(imagePath);
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setItem((prevItem) => ({
       ...prevItem,
-      [name]: value,  // Update the field based on the name of the input
+      [name]: value,
     }));
   };
 
+  if (!item) return <div>Loading...</div>;
+
   return (
     <main>
-    <div>
-      <h1>Edit Item</h1>
+      <div className="edit__header-container">
+        <Link to="/">
+          <img src={backArrow} alt="back-arrow" className="back-arrow" />
+        </Link>
+        <h1 className="edit__title">Edit Item</h1>
+      </div>
+
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Item Name:</label>
-          <input
-            type="text"
-            name="item_name"
-            value={item.item_name || ""}
-            onChange={handleChange}
-          />
+        <div className="edit__container">
+          <div className="edit__image-wrapper">
+            <div className="edit__image-container">
+              {selectedImage ? (
+                <img
+                  src={`http://localhost:8080${selectedImage}`} 
+                  alt="Image Preview"
+                  className="edit__image-preview"
+                />
+              ) : (
+                <div className="edit__image-placeholder">No image selected</div>
+              )}
+            </div>
+
+            <label htmlFor="image-select" className="edit__file-label">Select Image</label>
+            <select
+              id="image-select"
+              value={selectedImage}
+              onChange={handleImageChange}
+              required
+            >
+              <option value="">-- Choose an image --</option>
+              <option value="/images/uggs.png">UGGs Side View</option>
+              <option value="/images/superpuff.png">Super Puff</option>
+              <option value="/images/beanie.png">Beanie</option>
+              <option value="/images/uggs2.png">UGGs Top View</option>
+            
+            </select>
+          </div>
+
+          <div className="edit__info-container">
+            <div className="edit__input-group">
+              <label htmlFor="item-name" className="edit__label">Item Name</label>
+              <input
+                type="text"
+                id="item-name"
+                name="item_name"
+                value={item.item_name}
+                onChange={handleChange}
+                required
+                className="edit__input"
+              />
+            </div>
+
+            <div className="edit__input-group">
+              <label htmlFor="price" className="edit__label">Price</label>
+              <input
+                type="number"
+                id="price"
+                name="price"
+                value={item.price}
+                onChange={handleChange}
+                required
+                className="edit__input"
+              />
+            </div>
+
+            <div className="edit__input-group">
+              <label htmlFor="description" className="edit__label">Description</label>
+              <textarea
+                id="description"
+                name="description"
+                value={item.description}
+                onChange={handleChange}
+                className="edit__input description-input"
+              ></textarea>
+            </div>
+
+            <div className="edit__input-group">
+              <label htmlFor="purchase-link" className="edit__label">Purchase Link</label>
+              <input
+                type="url"
+                id="purchase-link"
+                name="purchase_link"
+                value={item.purchase_link}
+                onChange={handleChange}
+                className="edit__input"
+              />
+            </div>
+
+            <div className="submit-button-container">
+              <button type="submit" className="submit-button">Save Changes</button>
+            </div>
+          </div>
         </div>
-        <div>
-          <label>Price:</label>
-          <input
-            type="number"
-            name="price"
-            value={item.price || ""}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>Description:</label>
-          <textarea
-            name="description"
-            value={item.description || ""}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>Link to Buy:</label>
-          <input
-            type="url"
-            name="purchase_link"
-            value={item.purchase_link || ""}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Save Changes</button>
       </form>
-    </div>
     </main>
   );
 }

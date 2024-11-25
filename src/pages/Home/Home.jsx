@@ -52,7 +52,7 @@ function Home() {
               <Link to={`/details/${item.item_id}`} className="card-link">
                 <div className="card-image-container">
                   <img
-                    src={item.item_img}
+                    src={`${baseUrl}${item.item_img}`}
                     alt={item.item_name}
                     className="card-image"
                   />

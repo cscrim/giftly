@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import utils from "../../utils";
+import axios from 'axios';
 import backArrow from "../../assets/back_arrow.png";
 import logo from "../../assets/giftly_logo.png";
 import "./AddItem.scss";
@@ -14,51 +14,44 @@ function AddItem() {
   const [itemPrice, setItemPrice] = useState("");
   const [itemDescription, setItemDescription] = useState("");
   const [purchaseLink, setPurchaseLink] = useState("");
-  const [imageFile, setImageFile] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(""); 
+  const [imageOptions] = useState([
+    "/images/uggs.png",
+    "/images/superpuff.png",
+    "/images/beanie.png",
+  ]);
 
+  
   const [imageSrc, setImageSrc] = useState("");
-
-  const onFileSelect = (e) => {
-    const file = e.target.files[0];
-
-    if (utils.verifyImageFile(file)) {
-      setImageFile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => setImageSrc(reader.result); 
-      reader.readAsDataURL(file);
-    } else {
-      setImageFile(null); 
-      setImageSrc(""); 
-    }
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!itemName || !itemPrice || !imageFile) {
+  
+    if (!itemName || !itemPrice || !selectedImage) {
       alert("Please fill in all required fields!");
       return;
     }
-
-    const formData = new FormData();
-    formData.append("item_name", itemName);
-    formData.append("price", itemPrice);
-    formData.append("description", itemDescription);
-    formData.append("purchase_link", purchaseLink);
-    formData.append("item_img", imageFile); // this should be the URL returned from the image upload
-
+  
+    const formData = {
+      item_name: itemName,
+      price: itemPrice,
+      description: itemDescription,
+      purchase_link: purchaseLink,
+      item_img: selectedImage,  
+    };
+  
     try {
-      const response = await axios.post(`${baseUrl}/wishlist/add`, formData, {
+      const response = await axios.post(`${baseUrl}/wishlist`, formData, {
         headers: {
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "application/json",  
         },
       });
-
+  
       console.log("Item added successfully:", response.data);
-
+  
       alert("Item added successfully!");
-
-      navigate("/wishlist");
+  
+      navigate("/");
     } catch (error) {
       console.error("Error adding item:", error);
       alert("There was an error adding the item.");
@@ -78,11 +71,13 @@ function AddItem() {
         <div className="upload__container">
           <div className="upload__image-wrapper">
             <div className="upload__image-container">
+           
               {imageSrc ? (
                 <img
                   src={imageSrc}
                   alt="Image Preview"
                   className="upload__image-preview"
+                  style={{ width: '500px', height: '500px' }}
                 />
               ) : (
                 <img
@@ -94,16 +89,30 @@ function AddItem() {
             </div>
 
             <div className="upload__button-container">
-              <input
-                type="file"
-                accept="image/jpeg, image/png"
-                onChange={onFileSelect}
-                className="upload__image-input"
-              />
+              <label htmlFor="image-select" className="upload__label">
+                Select an Image:
+              </label>
+              <select
+                id="image-select"
+                value={selectedImage}
+                onChange={(e) => {
+                  setSelectedImage(e.target.value);
+                  setImageSrc(`${baseUrl}${e.target.value}`); 
+                }}
+                required
+              >
+                <option value="">-- Choose an image --</option>
+                {imageOptions.map((imageUrl) => (
+                  <option key={imageUrl} value={imageUrl}>
+                    {imageUrl}
+                  </option>
+                ))}
+              </select>
+
             </div>
           </div>
 
-
+   
           <div className="upload__details-container">
             <div className="upload__input-group">
               <label htmlFor="item-name" className="upload__label">
@@ -171,5 +180,3 @@ function AddItem() {
 }
 
 export default AddItem;
-
-
