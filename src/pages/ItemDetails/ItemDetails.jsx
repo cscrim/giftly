@@ -93,7 +93,7 @@ function ItemDetails() {
 
         {/* Buttons for Edit and Delete */}
         <div className="details__buttons-container">
-            <Link to={`/wishlist/edit/${item.id}`} className="details__button edit-button">
+            <Link to={`/edit/${item_id}`} className="details__button edit-button">
               Edit Item
             </Link>
             <button
