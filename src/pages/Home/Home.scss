@@ -18,7 +18,7 @@ main {
   position: relative;
   display: inline-block;
   border: 2px solid white;
-  padding: 15px;
+  padding: .9375rem;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   background: linear-gradient(145deg, $primary-purple, $primary-accent-dark);
   border-radius: 5%;
@@ -95,7 +95,7 @@ main {
 }
 
 .add-item-button {
-  font-size: 18px;
+  font-size: 1.125rem;
   padding: 1rem 2rem;
   background-color: $secondary-purple-light;
   border: none;
@@ -130,7 +130,7 @@ main {
   .card-image-container {
     width: 100%;
     height: 15rem;
-    margin-bottom: 15px;
+    margin-bottom: .9375rem;
     position: relative;
     background: $primary-cream;
     border-radius: 5px;
@@ -147,14 +147,16 @@ main {
 
   .card-title {
     font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 10px;
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
     text-align: center;
   }
 
   .card-description {
-    font-size: 14px;
-    margin-bottom: 2rem;
+    font-size: .875rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    height: 3rem;
   }
 
   .card-price {
@@ -166,7 +168,7 @@ main {
 
   .card-button {
     width: 100%;
-    padding: 10px;
+    padding: .625rem;
     background-color: $highlight-purple;
     border-radius: 5px;
     border: none;

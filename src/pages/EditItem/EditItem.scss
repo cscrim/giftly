@@ -39,13 +39,13 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 500px;
+  width: 31.25rem;
 }
 
 .edit__image-container {
   border: 2px dashed $primary-purple;
   border-radius: 5px;
-  padding: 20px;
+  padding: 1.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,13 +54,13 @@ main {
 
 .edit__image-preview {
   max-width: 100%;
-  max-height: 500px;
+  max-height: 31.25rem;
   object-fit: contain;
 }
 
 .edit__image-placeholder {
   width: 100%;
-  max-width: 300px;
+  max-width: 18.75rem;
   object-fit: contain;
 }
 
@@ -68,7 +68,7 @@ main {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 500px;
+  max-width: 31.25rem;
 }
 
 .edit__input-group {
@@ -102,7 +102,7 @@ main {
 }
 
 .submit-button {
-  padding: 10px 20px;
+  padding: .625rem 1.25rem;
   background-color: $highlight-purple;
   color: white;
   border: none;
@@ -130,7 +130,7 @@ main {
 
 .edit__file-label {
   display: inline-block;
-  padding: 10px 20px;
+  padding: .625rem 1.25rem;
   background-color: #6fa69c;
   color: white;
   border-radius: 5px;
