@@ -89,9 +89,7 @@ function AddItem() {
             </div>
 
             <div className="upload__button-container">
-              <label htmlFor="image-select" className="upload__label">
-                Select an Image:
-              </label>
+      
               <select
                 id="image-select"
                 value={selectedImage}
@@ -101,7 +99,7 @@ function AddItem() {
                 }}
                 required
               >
-                <option value="">-- Choose an image --</option>
+                <option value=""> Choose an Image </option>
                 {imageOptions.map((imageUrl) => (
                   <option key={imageUrl} value={imageUrl}>
                     {imageUrl}

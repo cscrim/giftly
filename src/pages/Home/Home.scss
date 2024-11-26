@@ -15,16 +15,14 @@ main {
   width: 12.5rem;
   height: 12.5rem;
   margin-left: 2.5rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  position: relative; /* For positioning the hover text */
+  position: relative;
   display: inline-block;
   border: 2px solid white;
   padding: 15px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   background: linear-gradient(145deg, $primary-purple, $primary-accent-dark);
   border-radius: 5%;
-  overflow: hidden; /* Ensure the text stays within the container */
+  overflow: hidden;
 
   .courtneys-pic {
     width: 100%;
@@ -32,7 +30,7 @@ main {
     object-fit: cover;
     border-radius: 10%;
     display: block;
-    transition: opacity 0.3s ease; /* Smooth transition for the dimming effect */
+    transition: opacity 0.3s ease;
   }
 
   .hover-text {
@@ -43,21 +41,21 @@ main {
     font-size: 2rem;
     font-weight: 300;
     color: $primary-cream;
-    opacity: 0;  
-    transition: opacity 0.3s ease; 
-    z-index: 2;  
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
   }
 
   &:hover {
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);  
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
   }
 
   &:hover .courtneys-pic {
-    opacity: 0.2;  
+    opacity: 0.2;
   }
 
   &:hover .hover-text {
-    opacity: 1;  
+    opacity: 1;
   }
 }
 
@@ -81,14 +79,19 @@ main {
   padding: 1.5rem;
 }
 
+.add__item-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding-left: 3.8rem;
+}
+
 .add-item-container {
-  width: 14rem;
-  height: 31.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent;
-  box-shadow: none;
 }
 
 .add-item-button {

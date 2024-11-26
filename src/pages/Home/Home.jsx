@@ -39,14 +39,19 @@ function Home() {
         </div>
       </section>
 
-      <section className="gifts-container">
-        <div className="card-container">
-          <div className="add-item-container">
+      <section className="add__item-container">
+
+      <div className="add-item-container">
             <Link to="/add">
               <button className="add-item-button">+ add item</button>
             </Link>
           </div>
 
+      </section>
+
+      <section className="gifts-container">
+        <div className="card-container">
+   
           {wishlistItems.map((item) => (
             <div key={item.item_id} className="card">
               <Link to={`/details/${item.item_id}`} className="card-link">

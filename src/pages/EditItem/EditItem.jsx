@@ -96,14 +96,13 @@ function EditItem() {
               )}
             </div>
 
-            <label htmlFor="image-select" className="edit__file-label">Select Image</label>
             <select
               id="image-select"
               value={selectedImage}
               onChange={handleImageChange}
               required
             >
-              <option value="">-- Choose an image --</option>
+              <option value="">Choose a New Image</option>
               <option value="/images/uggs.png">UGGs Side View</option>
               <option value="/images/superpuff.png">Super Puff</option>
               <option value="/images/beanie.png">Beanie</option>
@@ -163,7 +162,7 @@ function EditItem() {
             </div>
 
             <div className="submit-button-container">
-              <button type="submit" className="submit-button">Save Changes</button>
+              <button type="submit" className="submit-button">SAVE</button>
             </div>
           </div>
         </div>

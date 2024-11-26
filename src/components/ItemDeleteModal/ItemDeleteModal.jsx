@@ -23,9 +23,9 @@ const ItemDeleteModal = ({
   return (
     <div className="modalWrapper">
       <div className="modalOverlay">
-        <button className="exit__button" onClick={handleCancelClick}>
-          {/* <img src={cancelIcon} alt="Cancel" /> */}
-        </button>
+        {/* <button className="exit__button" onClick={handleCancelClick}>
+          <img src={cancelIcon} alt="Cancel" />
+        </button> */}
 
         <div className="modalContent">
           <h1>Delete {itemName}?</h1>
@@ -37,10 +37,10 @@ const ItemDeleteModal = ({
 
         <div className="modalButtons">
           <button className="cancel" onClick={handleCancelClick}>
-            Cancel
+            CANCEL
           </button>
           <button className="delete" onClick={handleDeleteClick}>
-            Delete
+            DELETE
           </button>
         </div>
       </div>

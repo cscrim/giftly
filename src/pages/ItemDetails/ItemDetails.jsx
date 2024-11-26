@@ -95,13 +95,13 @@ function ItemDetails() {
               to={`/edit/${item_id}`}
               className="details__button edit-button"
             >
-              Edit Item
+              EDIT
             </Link>
             <button
               className="details__button delete-button"
               onClick={() => setShowDeleteModal(true)}
             >
-              Delete Item
+              DELETE
             </button>
           </div>
         </div>

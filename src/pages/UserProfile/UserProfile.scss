@@ -1,113 +1,107 @@
 @use "../../styles/partials/variables" as *;
 
 main {
-    background-color: $secondary-purple-light;
-    min-height: 100vh;
-  }
+  background-color: $secondary-purple-light;
+  min-height: 100vh;
+}
 
 .profile__header-container {
-    display: flex;
-    padding-left: 4rem;
-    padding-top: 4rem;
-    align-items: center;
-  }
-  
-  .profile__title {
-    font-size: 3rem;
-    font-weight: 500;
-    color: $primary-black;
-    padding-left: 1rem;
-  }
-  
-  .back-arrow {
-    width: 2.5rem;
-    height: 2.5rem;
-    cursor: pointer;
-  }
+  display: flex;
+  padding-left: 4rem;
+  padding-top: 4rem;
+  align-items: center;
+}
 
-  .profile__content {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 2rem 4rem;
-    gap: 3rem;
-  }
-  
-  .profile__image-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1.25rem;
-  }
-  
-  .profile__image {
-    width: 500px; 
-    height: 500px; 
-    object-fit: cover; 
-    border-radius: 10%; 
-    border: 2px dashed $primary-purple;
-  }
-  
+.profile__title {
+  font-size: 3rem;
+  font-weight: 500;
+  color: $primary-black;
+  padding-left: 1rem;
+}
 
-  
-  .profile__details-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 2rem;
-    gap: 1.5rem;
-  }
-  
-  .profile__detail {
-    width: 100%;
-  }
-  
-  .profile__label {
-    font-weight: 600;
-    color: $primary-purple;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .profile__value {
-    width: 100%;
-    padding: 1rem;
-    // background-color: $primary-cream;
-    border-radius: 5px;
-    // border: 1px solid #ccc;
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: $primary-black;
-    display: block;
-    box-sizing: border-box;
-    margin-bottom: 2.5rem;
-  }
-  
-  .profile__value:hover {
-    background-color: $primary-purple;
-  }
-  
+.back-arrow {
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
 
-  .countdown-pill {
-    color: white;              
-    padding: 0.5rem 1.25rem;       
-    border-radius: 25px;       
-    font-weight: bold;       
-    font-size: 1rem;           
-    margin-left: 8rem;          
-  }
+.profile__content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 2rem 4rem;
+  gap: 3rem;
+}
 
+.profile__image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem;
+}
 
-  .countdown-pill.green {
-    background-color: $primary-accent-dark;
-  }
-  
-  .countdown-pill.yellow {
-    background-color: yellow;
-    color: $primary-black;
-  }
-  
-  .countdown-pill.red {
-    background-color: red;
-  }
+.profile__image {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10%;
+  border: 2px dashed $primary-purple;
+}
+
+.profile__details-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 2rem;
+  gap: 1.5rem;
+}
+
+.profile__detail {
+  width: 100%;
+}
+
+.profile__label {
+  font-weight: 600;
+  color: $primary-purple;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile__value {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: $primary-black;
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 2.5rem;
+}
+
+.profile__value:hover {
+  background-color: $primary-purple;
+}
+
+.countdown-pill {
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-left: 8rem;
+}
+
+.countdown-pill.green {
+  background-color: $primary-accent-dark;
+}
+
+.countdown-pill.yellow {
+  background-color: yellow;
+  color: $primary-black;
+}
+
+.countdown-pill.red {
+  background-color: red;
+}

@@ -1,95 +1,3 @@
-// @use "../../styles/partials/variables" as *;
-
-// main {
-//   background-color: $secondary-purple-light;
-//   min-height: 100vh;
-// }
-
-// .add__header-container {
-//   display: flex;
-//   padding-left: 4rem;
-//   padding-top: 4rem;
-//   align-items: center;
-// }
-
-// .add__title {
-//   font-size: 3rem;
-//   font-weight: 500;
-//   color: $primary-black;
-//   padding-left: 1rem;
-// }
-
-// .back-arrow {
-//   width: 2.5rem;
-//   height: 2.5rem;
-//   cursor: pointer;
-// }
-
-// .details__container {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   margin-top: 2rem;
-//   gap: 2rem;
-// }
-
-// .details__image-container {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   margin-bottom: 2rem;
-//   border: 2px dashed $primary-purple;
-//   border-radius: 5px;
-// }
-
-// .details__image {
-//   max-width: 500px;
-//   max-height: 500px;
-//   object-fit: contain;
-//   border: 1px solid #ddd;
-//   margin-bottom: 1rem;
-// }
-
-// .details__image-placeholder {
-//   max-width: 100px;
-//   max-height: 100px;
-// }
-
-// .details__info-container {
-//   display: flex;
-//   flex-direction: column;
-//   width: 100%;
-//   max-width: 500px;
-//   padding-top: 2rem;
-// }
-
-// .details__info-group {
-//   margin-bottom: 1rem;
-// }
-
-// .details__label {
-//   font-weight: 400;
-//   margin-bottom: 0.75rem;
-//   display: flex;
-// }
-
-// .details__text {
-//   font-size: 1rem;
-//   color: $primary-black;
-// }
-
-// .details__link {
-//   font-size: 1rem;
-//   color: $primary-accent-dark;
-//   text-decoration: none;
-// }
-
-// .details__link:hover {
-//   text-decoration: underline;
-// }
-
-
-
 @use "../../styles/partials/variables" as *;
 
 main {
@@ -121,7 +29,7 @@ main {
 .details__container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 2rem;
   gap: 2rem;
 }
@@ -132,7 +40,7 @@ main {
 
 .details__image-container {
   border: 2px dashed $primary-purple;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -145,26 +53,24 @@ main {
   object-fit: contain;
 }
 
-.details__image-placeholder {
-  width: 100%;
-  max-width: 300px;
-  object-fit: contain;
-}
-
 .details__info-container {
   display: flex;
   flex-direction: column;
-  max-width: 600px;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 500px;
+  padding-top: 2rem;
 }
 
 .details__info-group {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .details__label {
   font-size: 1.2rem;
   font-weight: 600;
-  color: $primary-black;
+  color: $primary-purple;
+  margin-bottom: 0.5rem;
 }
 
 .details__text {
@@ -174,11 +80,79 @@ main {
 }
 
 .details__link {
-  color: $highlight-purple;
+  color: $primary-black;
   font-size: 1.1rem;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .details__link:hover {
-  text-decoration: underline;
+  color: white;
+}
+
+.details__buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.details__button {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  width: 25%;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  text-decoration: none;
+}
+
+.details__button.edit-button {
+  background-color: $highlight-purple;
+  border: 2px solid $secondary-purple-light;
+}
+
+.details__button.edit-button:hover {
+  background-color: $primary-accent;
+  border: 2px solid $primary-accent-dark;
+}
+
+.details__button.edit-button:active {
+  background-color: $primary-accent-dark;
+}
+
+.details__button.delete-button {
+  background-color: #e53946;
+  color: white;
+  border: 2px solid #d32f2f;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 25%;
+  text-align: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.details__button.delete-button:hover {
+  background-color: #c62828;
+  border-color: #b71c1c;
+}
+
+.details__button.delete-button:active {
+  background-color: #b71c1c;
+  border-color: #9e1c1c;
+}
+
+.details__button.edit-button {
+  text-decoration: none;
+}
+
+.details__image-placeholder {
+  width: 100%;
+  max-width: 300px;
+  object-fit: contain;
 }
