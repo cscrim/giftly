@@ -1,36 +1,29 @@
-import "./ItemDeleteModal.scss"; 
-// import cancelIcon from "../../assets/Icons/close-24px.svg";
+import { useNavigate } from 'react-router-dom';
+import "./ItemDeleteModal.scss";
 
-const ItemDeleteModal = ({
-  isOpen,
-  onClose,
-  onDelete,
-  itemId,
-  itemName,
-}) => {
+const ItemDeleteModal = ({ isOpen, onClose, onDelete, itemId, itemName }) => {
   if (!isOpen) return null;
+
+  const navigate = useNavigate();
 
   const handleDeleteClick = () => {
     if (itemId) {
-      onDelete(itemId); 
+      onDelete(itemId);
+      navigate("/");
     }
   };
 
   const handleCancelClick = () => {
-    onClose();  
+    onClose();
   };
 
   return (
     <div className="modalWrapper">
       <div className="modalOverlay">
-        {/* <button className="exit__button" onClick={handleCancelClick}>
-          <img src={cancelIcon} alt="Cancel" />
-        </button> */}
-
         <div className="modalContent">
           <h1>Delete {itemName}?</h1>
           <h2>
-            Please confirm you'd like to delete the item from your wishlist.
+            Please confirm you'd like to delete the {itemName} from your wishlist.
             This action cannot be undone.
           </h2>
         </div>

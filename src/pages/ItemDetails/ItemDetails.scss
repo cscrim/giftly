@@ -116,8 +116,9 @@ main {
 }
 
 .details__button.edit-button:hover {
-  background-color: $primary-accent;
-  border: 2px solid $primary-accent-dark;
+  background-color: $secondary-purple-light;
+  border: 2px solid $highlight-purple;
+  color: $highlight-purple;
 }
 
 .details__button.edit-button:active {
