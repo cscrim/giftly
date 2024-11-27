@@ -1,0 +1,96 @@
+@use "../../styles/partials/variables" as *;
+
+.friends__header-container {
+  display: flex;
+  padding-left: 4rem;
+  padding-top: 4rem;
+  align-items: center;
+}
+
+.friends__title {
+  font-size: 3rem;
+  font-weight: 500;
+  color: $primary-black;
+  padding-left: 1rem;
+}
+
+.back-arrow {
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+.friends__grid-container {
+  padding: 2rem;
+}
+
+.friends-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  padding-left: 4rem;
+}
+
+.friend-profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+
+  &:hover {
+    transform: scale(1.05); 
+  }
+}
+
+
+.friend-profile-image-container {
+  width: 12.5rem;
+  height: 12.5rem;
+  position: relative;
+  border: 2px solid white;
+  padding: 0.9375rem;
+  background: linear-gradient(145deg, $primary-purple, $primary-accent-dark);
+  border-radius: 5%;
+  overflow: hidden;
+
+  .friend-profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10%;
+    display: block;
+  }
+}
+
+.friend-hover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: $primary-cream;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2; 
+  }
+
+  .friend-profile-container:hover .friend-profile-image {
+    opacity: 0.2; 
+  }
+  
+  .friend-profile-container:hover .friend-hover-text {
+    opacity: 1;
+  }
+
+.friend-name {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: $primary-black;
+}

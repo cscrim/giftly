@@ -6,6 +6,7 @@ import './Header.scss';
 function Header() {
   return (
     <header className="header__container">
+      <div className="header__left-container">
       <div className="header__logo-container">
         <Link to= "/">
         <img src={logo} alt="giftly-brand-logo" className="header__logo" />
@@ -16,6 +17,13 @@ function Header() {
             giftly
         </h1>
       </div>
+      </div>
+
+      <div className="header__right-container">
+        <Link to="/friends" className="header__friends-link">friends</Link>
+        <Link to="/login" className="header__logout-pill">logout</Link>
+      </div>
+
     </header>
   )
 }

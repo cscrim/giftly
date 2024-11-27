@@ -1,0 +1,130 @@
+@use "../../styles/partials/variables" as *;
+
+.friend-wishlist__header-container {
+  display: flex;
+  align-items: center;
+  padding-top: 4rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.back-arrow {
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+.friend-wishlist__title {
+  font-size: 3rem;
+  font-weight: 500;
+  color: $primary-black;
+  padding-left: 2rem;
+  text-align: center;
+}
+
+.friend-profile-image {
+  width: 12.5rem;
+  height: 12.5rem;
+  object-fit: cover;
+  border-radius: 10%;
+  border: 2px solid white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.friend-wishlist__items-container {
+  margin-top: 3rem;
+}
+
+.friends-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+  padding-left: 4rem;
+}
+
+.friend-card {
+  width: 21.875rem;
+  height: 31.25rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border-radius: 5px;
+  border: 2px solid $primary-accent-dark;
+  background-color: $primary-cream;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .friend-card-image-container {
+    width: 100%;
+    height: 15rem;
+    margin-bottom: 0.9375rem;
+    position: relative;
+    background: $primary-cream;
+    border-radius: 5px;
+  }
+
+  .friend-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .friend-card-title {
+    font-weight: bold;
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .friend-card-description {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .friend-card-price {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .friend-card-buy-button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: $highlight-purple;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .friend-card-buy-button:hover {
+    background-color: $primary-accent-dark;
+  }
+
+  &.greyed-out {
+    background-color: #e0e0e0; /* Light grey background */
+    border: 2px solid #bdbdbd; /* Grey border */
+    pointer-events: none; /* Disable any interaction */
+    opacity: 0.6; /* Reduce opacity */
+  }
+
+  .friend-card-buy-button:disabled {
+    background-color: #bdbdbd; /* Grey out the "Buy Now" button */
+    cursor: not-allowed; /* Show a "not-allowed" cursor */
+  }
+}

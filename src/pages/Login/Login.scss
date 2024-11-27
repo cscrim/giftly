@@ -1,0 +1,83 @@
+@use '../../styles/partials/variables' as *;
+
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background: linear-gradient(145deg, $primary-purple, $primary-accent-dark);
+    color: white;
+  }
+
+  
+  .login-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 2rem 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px; 
+    width: 100%;
+  }
+  
+  
+  .login-form-container h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: black;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+  
+  .form-group label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+
+  .form-group input:focus {
+    border-color: $primary-purple;
+  }
+  
+
+  .login-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: $primary-purple; 
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-btn:hover {
+    background-color: $highlight-purple; 
+  }
+  
+  .login-btn:active {
+    background-color: $highlight-purple; 
+  }
