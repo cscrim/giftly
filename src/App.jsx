@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
 import UserProfile from './pages/UserProfile/UserProfile';
@@ -95,27 +95,35 @@ const friendsData = [
 
 
 function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
+  );
+}
 
+const AppContent = () => {
+  const location = useLocation();
+
+  const hideHeaderOnPaths = ['/login'];
 
   return (
-  
-    <BrowserRouter>
-    <Header />
-   
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/profile" element={<UserProfile />} />
-      <Route path="/add" element={<AddItem />} />
-      <Route path="/edit/:item_id" element={<EditItem />} />
-      <Route path="/details/:item_id" element={<ItemDetails />} />
-      {/* <Route path="*" element={<NotFound />} /> */}
-      <Route path="/login" element={<Login />} />
-      <Route path="/friends" element={ <Friends friendsData={friendsData} />} />
-      <Route path="/friends/:id" element={<FriendWishlist friendsData={friendsData} />} />
-    </Routes>
-    </BrowserRouter>
- 
-  )
-}
+    <>
+    
+      {!hideHeaderOnPaths.includes(location.pathname) && <Header />}
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<UserProfile />} />
+        <Route path="/add" element={<AddItem />} />
+        <Route path="/edit/:item_id" element={<EditItem />} />
+        <Route path="/details/:item_id" element={<ItemDetails />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/friends" element={<Friends friendsData={friendsData} />} />
+        <Route path="/friends/:id" element={<FriendWishlist friendsData={friendsData} />} />
+      </Routes>
+    </>
+  );
+};
 
 export default App;

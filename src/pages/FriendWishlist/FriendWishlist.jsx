@@ -39,13 +39,10 @@ function FriendWishlist({ friendsData }) {
       <section className="friend-wishlist__items-container">
         <div className="friends-card-container">
           {friend.wishlist.map((item) => (
-            // <div key={item.id} className="friend-card">
-
             <div
-            key={item.id}
-            className={`friend-card ${item.purchased ? "greyed-out" : ""}`}
-          >
-
+              key={item.id}
+              className={`friend-card ${item.purchased ? "greyed-out" : ""}`}
+            >
               <div className="friend-card-image-container">
                 <img
                   src={item.itemImage}
@@ -56,21 +53,20 @@ function FriendWishlist({ friendsData }) {
               <div className="friend-card-title">{item.itemName}</div>
               <div className="friend-card-description">{item.description}</div>
               <div className="friend-card-price">{item.price}</div>
-              {/* <a href={item.buyNowLink} target="_blank" rel="noopener noreferrer">
-                <button className="friend-card-buy-button">BUY NOW</button>
-              </a>
-            </div>
-          ))}
-        </div>
-      </section> */}
-              {!item.purchased && (
-                <a
-                  href={item.buyNowLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
+
+              {!item.purchased && item.buyLink && (
+                <button
+                  className="friend-card-buy-button"
+                  onClick={() => {
+                    if (item.buyLink) {
+                      window.open(item.buyLink, "_blank");
+                    } else {
+                      console.error("No buy link available for this item.");
+                    }
+                  }}
                 >
-                  <button className="friend-card-buy-button">BUY NOW</button>
-                </a>
+                  BUY NOW
+                </button>
               )}
               {item.purchased && (
                 <button className="friend-card-buy-button" disabled>
