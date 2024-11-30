@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import backArrow from "../../assets/back_arrow.png";
+import backArrow from "../../assets/backarrow.png";
+import FriendCard from "../../components/FriendCard/FriendCard";
 import "./FriendWishlist.scss";
 
 function FriendWishlist({ friendsData }) {
@@ -28,52 +29,22 @@ function FriendWishlist({ friendsData }) {
             className="back-arrow"
           />
         </Link>
-        <img
-          src={friend.profileImage}
-          alt={friend.name}
-          className="friend-profile-image"
-        />
+
         <h1 className="friend-wishlist__title">{friend.name}'s Wishlist</h1>
       </div>
 
       <section className="friend-wishlist__items-container">
         <div className="friends-card-container">
           {friend.wishlist.map((item) => (
-            <div
+            <FriendCard
               key={item.id}
-              className={`friend-card ${item.purchased ? "greyed-out" : ""}`}
-            >
-              <div className="friend-card-image-container">
-                <img
-                  src={item.itemImage}
-                  alt={item.itemName}
-                  className="friend-card-image"
-                />
-              </div>
-              <div className="friend-card-title">{item.itemName}</div>
-              <div className="friend-card-description">{item.description}</div>
-              <div className="friend-card-price">{item.price}</div>
-
-              {!item.purchased && item.buyLink && (
-                <button
-                  className="friend-card-buy-button"
-                  onClick={() => {
-                    if (item.buyLink) {
-                      window.open(item.buyLink, "_blank");
-                    } else {
-                      console.error("No buy link available for this item.");
-                    }
-                  }}
-                >
-                  BUY NOW
-                </button>
-              )}
-              {item.purchased && (
-                <button className="friend-card-buy-button" disabled>
-                  PURCHASED
-                </button>
-              )}
-            </div>
+              item_name={item.itemName}
+              item_img={item.itemImage}
+              description={item.description}
+              price={item.price}
+              buy_link={item.buyLink}
+              purchased={item.purchased}
+            />
           ))}
         </div>
       </section>

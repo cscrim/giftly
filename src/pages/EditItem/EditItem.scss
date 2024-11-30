@@ -1,29 +1,22 @@
 @use "../../styles/partials/variables" as *;
 
-main {
-  background-color: $secondary-purple-light;
-  min-height: 100vh;
-  padding: 3rem;
-}
-
 .edit__header-container {
   display: flex;
-  padding-left: 4rem;
-  padding-top: 4rem;
+  padding-top: 1rem;
   align-items: center;
-}
 
-.edit__title {
-  font-size: 3rem;
-  font-weight: 500;
-  color: $primary-black;
-  padding-left: 1rem;
-}
+  .edit__title {
+    font-size: 3rem;
+    font-weight: 500;
+    color: $primary-black;
+    padding-left: 1rem;
+  }
 
-.back-arrow {
-  width: 2.5rem;
-  height: 2.5rem;
-  cursor: pointer;
+  .back-arrow {
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+  }
 }
 
 .edit__container {
@@ -32,24 +25,30 @@ main {
   align-items: center;
   margin-top: 2rem;
   gap: 2rem;
-}
 
-.edit__image-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 31.25rem;
-}
+  .edit__image-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 31.25rem;
+  }
 
-.edit__image-container {
-  border: 2px dashed $primary-purple;
-  border-radius: 5px;
-  padding: 1.25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 2rem;
+  .edit__image-container {
+    border: 2px dashed $primary-black;
+    border-radius: 5px;
+    padding: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .edit__image-preview {
+      max-width: 100%;
+      max-height: 31.25rem;
+      object-fit: contain;
+    }
+  }
 }
 
 .edit__image-preview {
@@ -72,7 +71,7 @@ main {
 }
 
 .edit__input-group {
-  margin-bottom: 1rem; 
+  margin-bottom: 1rem;
 }
 
 .edit__label {
@@ -91,7 +90,7 @@ main {
 
 .edit__input:focus {
   outline: none;
-  border-color: $primary-accent-dark;
+  border-color: $primary-black;
 }
 
 .submit-button-container {
@@ -101,47 +100,26 @@ main {
   width: 100%;
 }
 
-.submit-button {
-  padding: .625rem 1.25rem;
-  background-color: $highlight-purple;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-top: 1.5rem;
-  text-align: center;
-  width: 25%;
-  border: 2px solid $secondary-purple-light;
-}
-
-.submit-button:hover {
-  background-color: $primary-accent;
-  border: 2px solid $primary-accent-dark;
-}
-
-.submit-button:active {
-  background-color: $primary-accent-dark;
-}
-
 .description-input {
   height: 6rem;
 }
 
-.edit__file-label {
-  display: inline-block;
-  padding: .625rem 1.25rem;
-  background-color: #6fa69c;
+.submit-button {
+  padding: 0.75rem 1.5rem;
+  background-color: #000; 
   color: white;
-  border-radius: 5px;
+  border-radius: 30px; 
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
   cursor: pointer;
-  text-align: center;
+  transition: background-color 0.3s ease;
+  width: 48%;
+  margin-top: 1rem;
+  border: 1px solid transparent;
 }
 
-.edit__file-label:hover {
-  background-color: #5e8a82;
-}
-
-.edit__file-label:active {
-  background-color: $primary-accent-dark;
+.submit-button:hover {
+  background-color: #4b8c76;
+  border: 1px solid $primary-black;
 }

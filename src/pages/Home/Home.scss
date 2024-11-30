@@ -1,74 +1,132 @@
 @use "../../styles/partials/variables" as *;
 
 
-main {
-  background-color: $secondary-purple-light;
-  min-height: 100vh;
-}
+// main {
+//   background-color: $secondary-purple-light;
+//   min-height: 100vh;
+// }
+
 
 .profile-container {
   display: flex;
   align-items: center;
-  gap: 4rem;
+  gap: 1rem;
+  padding-top: 1.5rem;
 }
 
 .profile__picture-container {
-  width: 12.5rem;
-  height: 12.5rem;
-  margin-left: 2.5rem;
+  width: 10rem;  /* Set the container to a smaller, more modern size */
+  height: 10rem; 
+  margin-left: 2rem;  /* Adjust margin for spacing */
   position: relative;
   display: inline-block;
-  border: 2px solid white;
-  padding: .9375rem;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(145deg, $primary-purple, $primary-accent-dark);
-  border-radius: 5%;
+  border-radius: 50%;  /* Fully round border for circle shape */
   overflow: hidden;
+  border: 4px solid #fff;  /* Add a subtle white border */
+  background-color: #f4f4f4;  /* Light gray or white background */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
+  transition: box-shadow 0.3s ease;
 
-  .courtneys-pic {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10%;
-    display: block;
-    transition: opacity 0.3s ease;
-  }
-
-  .hover-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2rem;
-    font-weight: 300;
-    color: $primary-cream;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 2;
-  }
-
+  /* Hover effect for a slight glow/shadow */
   &:hover {
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-  }
-
-  &:hover .courtneys-pic {
-    opacity: 0.2;
-  }
-
-  &:hover .hover-text {
-    opacity: 1;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);  /* Stronger shadow on hover */
   }
 }
 
+.courtneys-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* Ensures the image fills the circle */
+  transition: opacity 0.3s ease;
+}
+
+.profile__picture-container:hover .courtneys-pic {
+  opacity: 0.85;  /* Slight fade effect on hover */
+}
+
+.hover-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: 300;
+  color: $primary-cream;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.profile__picture-container:hover .hover-text {
+  opacity: 1;  /* Display text on hover */
+}
+
+// .profile-container {
+//   display: flex;
+//   align-items: center;
+//   gap: 4rem;
+// }
+
+// .profile__picture-container {
+//   width: 12.5rem;
+//   height: 12.5rem;
+//   margin-left: 2.5rem;
+//   position: relative;
+//   display: inline-block;
+//   border: 2px solid white;
+//   padding: .9375rem;
+//   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+//   background: linear-gradient(145deg, $primary-purple, $primary-accent-dark);
+//   border-radius: 5%;
+//   overflow: hidden;
+
+//   .courtneys-pic {
+//     width: 100%;
+//     height: 100%;
+//     object-fit: cover;
+//     border-radius: 10%;
+//     display: block;
+//     transition: opacity 0.3s ease;
+//   }
+
+//   .hover-text {
+//     position: absolute;
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     font-size: 2rem;
+//     font-weight: 300;
+//     color: $primary-cream;
+//     opacity: 0;
+//     transition: opacity 0.3s ease;
+//     z-index: 2;
+//   }
+
+//   &:hover {
+//     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+//   }
+
+//   &:hover .courtneys-pic {
+//     opacity: 0.2;
+//   }
+
+//   &:hover .hover-text {
+//     opacity: 1;
+//   }
+// }
+
 .profile__text-container {
-  flex-grow: 1;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
+  // flex-grow: 1;
+  // margin-top: 1.5rem;
+  // margin-bottom: 1.5rem;
 
   .profile__text {
     font-weight: 600;
     font-size: 3rem;
     color: $primary-black;
+    margin: 0;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
   }
 }
 
@@ -97,12 +155,13 @@ main {
 
 .add-item-button {
   font-size: 1.125rem;
-  padding: 1rem 2rem;
-  background-color: $secondary-purple-light;
+  padding: 1rem 1rem;
+  // background-color: $secondary-purple-light;
+  background-color: transparent;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  color: $highlight-purple;
+  color: $primary-black;
   font-weight: 400;
 
   &:hover {
@@ -110,79 +169,79 @@ main {
   }
 }
 
-.card {
-  width: 21.875rem;
-  height: 31.25rem;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  border-radius: 5px;
-  border: 2px solid $primary-accent-dark;
-  background-color: $primary-cream;
+// .card {
+//   width: 21.875rem;
+//   height: 31.25rem;
+//   padding: 1.5rem;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   box-sizing: border-box;
+//   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+//   transition: transform 0.3s ease;
+//   border-radius: 5px;
+//   border: 2px solid $primary-accent-dark;
+//   background-color: $primary-cream;
 
-  &:hover {
-    transform: scale(1.05);
-  }
+//   &:hover {
+//     transform: scale(1.05);
+//   }
 
-  .card-image-container {
-    width: 100%;
-    height: 15rem;
-    margin-bottom: .9375rem;
-    position: relative;
-    background: $primary-cream;
-    border-radius: 5px;
-  }
+//   .card-image-container {
+//     width: 100%;
+//     height: 15rem;
+//     margin-bottom: .9375rem;
+//     position: relative;
+//     background: $primary-cream;
+//     border-radius: 5px;
+//   }
 
-  .card-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+//   .card-image {
+//     width: 100%;
+//     height: 100%;
+//     object-fit: contain;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//   }
 
-  .card-title {
-    font-weight: bold;
-    font-size: 1.125rem;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
+//   .card-title {
+//     font-weight: bold;
+//     font-size: 1.125rem;
+//     margin-bottom: 1rem;
+//     text-align: center;
+//   }
 
-  .card-description {
-    font-size: .875rem;
-    margin-bottom: 1.5rem;
-    margin-top: 1.5rem;
-    height: 3rem;
-  }
+//   .card-description {
+//     font-size: .875rem;
+//     margin-bottom: 1.5rem;
+//     margin-top: 1.5rem;
+//     height: 3rem;
+//   }
 
-  .card-price {
-    font-size: 1.25rem;
-    font-weight: 500;
-    margin-bottom: 0.625rem;
-    text-align: center;
-  }
+//   .card-price {
+//     font-size: 1.25rem;
+//     font-weight: 500;
+//     margin-bottom: 0.625rem;
+//     text-align: center;
+//   }
 
-  .card-button {
-    width: 100%;
-    padding: .625rem;
-    background-color: $highlight-purple;
-    border-radius: 5px;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }
+//   .card-button {
+//     width: 100%;
+//     padding: .625rem;
+//     background-color: $highlight-purple;
+//     border-radius: 5px;
+//     border: none;
+//     color: white;
+//     cursor: pointer;
+//   }
 
-  .card-button:hover {
-    background-color: $primary-accent-dark;
-  }
-}
+//   .card-button:hover {
+//     background-color: $primary-accent-dark;
+//   }
+// }
 
-.card-link {
-  text-decoration: none;
-  color: inherit;
-}
+// .card-link {
+//   text-decoration: none;
+//   color: inherit;
+// }

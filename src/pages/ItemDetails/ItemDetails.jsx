@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import backArrow from "../../assets/back_arrow.png";
+import backArrow from "../../assets/backarrow.png";
 import ItemDeleteModal from "../../components/ItemDeleteModal/ItemDeleteModal";
 import "./ItemDetails.scss";
 
@@ -93,12 +93,12 @@ function ItemDetails() {
           <div className="details__buttons-container">
             <Link
               to={`/edit/${item_id}`}
-              className="details__button edit-button"
+              className="details__button details-edit-button"
             >
               EDIT
             </Link>
             <button
-              className="details__button delete-button"
+              className="details__button details-delete-button"
               onClick={() => setShowDeleteModal(true)}
             >
               DELETE

@@ -1,8 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import axios from 'axios';
-import backArrow from "../../assets/back_arrow.png";
-import logo from "../../assets/giftly_logo.png";
+import axios from "axios";
+import logo from "../../assets/giftlylogo2.png";
+import backArrow from "../../assets/backarrow.png";
 import "./AddItem.scss";
 
 function AddItem() {
@@ -14,43 +14,43 @@ function AddItem() {
   const [itemPrice, setItemPrice] = useState("");
   const [itemDescription, setItemDescription] = useState("");
   const [purchaseLink, setPurchaseLink] = useState("");
-  const [selectedImage, setSelectedImage] = useState(""); 
-  const [imageOptions] = useState([
+  const [selectedImage, setSelectedImage] = useState("");
+
+  const imageOptions = [
     "/images/uggs.png",
     "/images/superpuff.png",
     "/images/beanie.png",
-  ]);
+  ];
 
-  
   const [imageSrc, setImageSrc] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     if (!itemName || !itemPrice || !selectedImage) {
       alert("Please fill in all required fields!");
       return;
     }
-  
+
     const formData = {
       item_name: itemName,
       price: itemPrice,
       description: itemDescription,
       purchase_link: purchaseLink,
-      item_img: selectedImage,  
+      item_img: selectedImage,
     };
-  
+
     try {
       const response = await axios.post(`${baseUrl}/wishlist`, formData, {
         headers: {
-          "Content-Type": "application/json",  
+          "Content-Type": "application/json",
         },
       });
-  
+
       console.log("Item added successfully:", response.data);
-  
+
       alert("Item added successfully!");
-  
+
       navigate("/");
     } catch (error) {
       console.error("Error adding item:", error);
@@ -71,13 +71,12 @@ function AddItem() {
         <div className="upload__container">
           <div className="upload__image-wrapper">
             <div className="upload__image-container">
-           
               {imageSrc ? (
                 <img
                   src={imageSrc}
                   alt="Image Preview"
                   className="upload__image-preview"
-                  style={{ width: '500px', height: '500px' }}
+                  style={{ width: "500px", height: "500px" }}
                 />
               ) : (
                 <img
@@ -89,13 +88,12 @@ function AddItem() {
             </div>
 
             <div className="upload__button-container">
-      
               <select
                 id="image-select"
                 value={selectedImage}
                 onChange={(e) => {
                   setSelectedImage(e.target.value);
-                  setImageSrc(`${baseUrl}${e.target.value}`); 
+                  setImageSrc(`${baseUrl}${e.target.value}`);
                 }}
                 required
               >
@@ -106,11 +104,9 @@ function AddItem() {
                   </option>
                 ))}
               </select>
-
             </div>
           </div>
 
-   
           <div className="upload__details-container">
             <div className="upload__input-group">
               <label htmlFor="item-name" className="upload__label">
@@ -166,7 +162,7 @@ function AddItem() {
             </div>
 
             <div className="submit-button-container">
-              <button type="submit" className="submit-button">
+              <button type="submit" className="add-submit-button">
                 SUBMIT
               </button>
             </div>

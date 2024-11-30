@@ -1,19 +1,36 @@
-@use './styles/partials/fonts' as *;
-@use './styles/partials/variables' as *;
-
+@use "./styles/partials/fonts" as *;
+@use "./styles/partials/variables" as *;
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+    font-family: "Barlow", sans-serif;
+}
+
+main {
+    // min-height: 100vh;
+    padding: 0 2rem 2rem 2rem;
 }
 
 body {
-    background-color: $primary-cream;
-    font-family: 'Roboto';
+  background-color: $primary-cream;
+  // font-family: 'Roboto';
+
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  margin: 1rem 0;
 }
 
 textarea {
-    font-family: 'Roboto';
+  font-family: "Roboto";
 }
 
+.back-arrow {
+  margin: 0;
+}

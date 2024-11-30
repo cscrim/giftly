@@ -1,0 +1,98 @@
+@use "../../styles/partials/variables" as *;
+
+.friend-card {
+  width: 20rem;
+  height: auto;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 0.625rem;
+  background-color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  &.purchased {
+    &:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  .friend-card-image-container {
+    width: 100%;
+    height: 20rem;
+    margin-bottom: 1rem;
+    position: relative;
+    background-color: #f4f4f4;
+    border-radius: 0.625rem;
+    overflow: hidden;
+  }
+
+  .friend-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .friend-card-title {
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    color: #333;
+  }
+
+  .friend-card-description {
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 1rem;
+    height: 3rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .friend-card-price {
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: #000;
+    text-align: left;
+  }
+
+  .friend-card-buy-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #000;
+    color: white;
+    border-radius: 1.875rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+
+    &:hover {
+      background-color: #333;
+    }
+
+    &:disabled {
+      background-color: #e0e0e0;
+      color: $primary-black;
+      border: 2px solid #bdbdbd;
+      pointer-events: none;
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+}

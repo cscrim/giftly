@@ -1,25 +1,26 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
-import backArrow from "../../assets/back_arrow.png";
-import "./EditItem.scss"; 
+import backArrow from "../../assets/backarrow.png";
+import "./EditItem.scss";
 
 function EditItem() {
   const { item_id } = useParams();
   const navigate = useNavigate();
 
   const [item, setItem] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(""); 
+  const [selectedImage, setSelectedImage] = useState("");
 
   const baseUrl = "http://localhost:8080";
 
   useEffect(() => {
     const fetchItemDetails = async () => {
       try {
-        const response = await axios.get(`${baseUrl}/wishlist/details/${item_id}`);
+        const response = await axios.get(
+          `${baseUrl}/wishlist/details/${item_id}`
+        );
         setItem(response.data);
 
-  
         setSelectedImage(response.data.item_img);
       } catch (error) {
         console.error("Error fetching item details:", error);
@@ -29,27 +30,28 @@ function EditItem() {
     fetchItemDetails();
   }, [item_id]);
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const formData = {
       item_name: item.item_name,
       price: item.price,
       description: item.description,
       purchase_link: item.purchase_link,
-      item_img: selectedImage,  
+      item_img: selectedImage,
     };
-  
+
     try {
-    
-      const response = await axios.put(`${baseUrl}/wishlist/edit/${item_id}`, formData, {
-        headers: {
-          "Content-Type": "application/json", 
-        },
-      });
-  
+      const response = await axios.put(
+        `${baseUrl}/wishlist/edit/${item_id}`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
       navigate("/");
     } catch (error) {
       console.error("Error updating item:", error);
@@ -87,7 +89,7 @@ function EditItem() {
             <div className="edit__image-container">
               {selectedImage ? (
                 <img
-                  src={`http://localhost:8080${selectedImage}`} 
+                  src={`http://localhost:8080${selectedImage}`}
                   alt="Image Preview"
                   className="edit__image-preview"
                 />
@@ -107,13 +109,14 @@ function EditItem() {
               <option value="/images/superpuff.png">Super Puff</option>
               <option value="/images/beanie.png">Beanie</option>
               <option value="/images/uggs2.png">UGGs Top View</option>
-            
             </select>
           </div>
 
           <div className="edit__info-container">
             <div className="edit__input-group">
-              <label htmlFor="item-name" className="edit__label">Item Name</label>
+              <label htmlFor="item-name" className="edit__label">
+                Item Name
+              </label>
               <input
                 type="text"
                 id="item-name"
@@ -126,7 +129,9 @@ function EditItem() {
             </div>
 
             <div className="edit__input-group">
-              <label htmlFor="price" className="edit__label">Price</label>
+              <label htmlFor="price" className="edit__label">
+                Price
+              </label>
               <input
                 type="number"
                 id="price"
@@ -139,7 +144,9 @@ function EditItem() {
             </div>
 
             <div className="edit__input-group">
-              <label htmlFor="description" className="edit__label">Description</label>
+              <label htmlFor="description" className="edit__label">
+                Description
+              </label>
               <textarea
                 id="description"
                 name="description"
@@ -150,7 +157,9 @@ function EditItem() {
             </div>
 
             <div className="edit__input-group">
-              <label htmlFor="purchase-link" className="edit__label">Purchase Link</label>
+              <label htmlFor="purchase-link" className="edit__label">
+                Purchase Link
+              </label>
               <input
                 type="url"
                 id="purchase-link"
@@ -162,7 +171,9 @@ function EditItem() {
             </div>
 
             <div className="submit-button-container">
-              <button type="submit" className="submit-button">SAVE</button>
+              <button type="submit" className="submit-button edit-save-button">
+                SAVE
+              </button>
             </div>
           </div>
         </div>

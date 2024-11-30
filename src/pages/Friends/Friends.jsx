@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import backArrow from "../../assets/back_arrow.png";
+import backArrow from "../../assets/backarrow.png";
 import "./Friends.scss";
 
 

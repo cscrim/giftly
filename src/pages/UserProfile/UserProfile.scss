@@ -1,14 +1,8 @@
 @use "../../styles/partials/variables" as *;
 
-main {
-  background-color: $secondary-purple-light;
-  min-height: 100vh;
-}
-
 .profile__header-container {
   display: flex;
-  padding-left: 4rem;
-  padding-top: 4rem;
+  padding-top: 1rem;
   align-items: center;
 }
 
@@ -45,7 +39,7 @@ main {
   height: 31.25rem;
   object-fit: cover;
   border-radius: 10%;
-  border: 2px dashed $primary-purple;
+  border: 2px dashed $primary-black;
 }
 
 .profile__details-section {
@@ -63,7 +57,7 @@ main {
 
 .profile__label {
   font-weight: 600;
-  color: $primary-purple;
+  color: $primary-black;
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
@@ -81,7 +75,7 @@ main {
 }
 
 .profile__value:hover {
-  background-color: $primary-purple;
+  background-color: white;
 }
 
 .countdown-pill {

@@ -1,65 +1,189 @@
+// @use '../../styles/partials/variables' as *;
+
+// .header__container {
+//     background-color: $primary-purple;
+//     // background-color: black;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+// }
+
+// .header__left-container {
+//     display: flex;
+//     align-items: center;
+// }
+
+// .header__right-container {
+//     margin-right: 2rem;
+// }
+
+// .header__logo-container {
+//     margin-left: 2rem;
+// }
+
+// .header__logo {
+//     width: 6.25rem;
+//     height: auto;
+//     // filter: grayscale(100%) brightness(125%) contrast(100%);
+//     filter: grayscale(100%) brightness(15%) contrast(100%);
+//     // filter: grayscale(100%) contrast(120%) brightness(90%);
+// }
+
+
+// .header__title {
+//     color: white;
+//     font-weight: 300;
+// }
+  
+//   .header__friends-link,
+//   .header__logout-pill {
+//     text-decoration: none;
+//     font-weight: 400;
+//     color: white;
+//     margin-left: 2rem; 
+//     transition: background-color 0.3s;
+//   }
+  
+//   .header__friends-link:hover,
+//   .header__logout-pill:hover {
+//     color: $highlight-purple; 
+//   }
+  
+  
+//   .header__logout-pill {
+//     background-color: $primary-purple;
+//     border: 2px solid $highlight-purple;
+//     padding: .5rem 1rem;
+//     border-radius: 3.125rem;
+//     color: white;
+//     font-weight: 400;
+//     text-align: center;
+//   }
+  
+//   .header__logout-pill:hover {
+//     background-color: $secondary-purple-light; 
+//   }
+
+
+
+
+
+
+
 @use '../../styles/partials/variables' as *;
 
 .header__container {
-    background-color: $primary-purple;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  // background-color: $primary-purple;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem 0 0;
 }
 
 .header__left-container {
-    display: flex;
-    align-items: center;
-}
-
-.header__right-container {
-    margin-right: 2rem;
+  display: flex;
+  align-items: center;
 }
 
 .header__logo-container {
-    margin-left: 2rem;
+  margin-left: 2rem;
 }
 
 .header__logo {
-    width: 6.25rem;
-    height: auto;
+  width: 5.25rem;
+  height: auto;
+  filter: grayscale(100%) brightness(15%) contrast(100%);
 }
 
 .header__title {
-    color: white;
-    font-weight: 300;
+  color: $primary-black;
+  font-weight: 300;
 }
-  
-  .header__friends-link,
-  .header__logout-pill {
-    text-decoration: none;
-    font-weight: 400;
+
+.header__right-container {
+  display: flex;
+  align-items: center;
+}
+
+.header__dropdown {
+  position: relative;
+}
+
+.header__dropdown-button {
+  background: none;
+  border: none;
+  color: white;
+  padding: 0;
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.header__dropdown-icon {
+  width: 20px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.header__dropdown-icon.rotated {
+  transform: rotate(180deg);  // Apply the rotation only when the dropdown is open
+}
+
+.header__dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 12rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  padding: 0.5rem 0;
+}
+
+.header__dropdown-item {
+  text-decoration: none;
+  color: $primary-black;
+  padding: 0.75rem 1rem;
+  font-weight: 400;
+  transition: background-color 0.3s;
+  display: block;
+
+  &:hover {
+    background-color: $primary-black;
     color: white;
-    margin-left: 2rem; 
-    transition: background-color 0.3s;
   }
-  
-  .header__friends-link:hover,
-  .header__logout-pill:hover {
-    color: $highlight-purple; 
-  }
-  
-  
-  .header__logout-pill {
-    background-color: $primary-purple;
-    border: 2px solid $highlight-purple;
-    padding: .5rem 1rem;
-    border-radius: 3.125rem;
-    color: white;
-    font-weight: 400;
-    text-align: center;
-  }
-  
-  .header__logout-pill:hover {
-    background-color: $secondary-purple-light; 
-  }
+}
 
+.header__friends-link,
+.header__logout-pill {
+  text-decoration: none;
+  font-weight: 400;
+  color: white;
+  margin-left: 2rem;
+  transition: background-color 0.3s;
+}
 
+.header__friends-link:hover,
+.header__logout-pill:hover {
+  color: $highlight-purple;
+}
 
+.header__logout-pill {
+  background-color: $primary-purple;
+  border: 2px solid $highlight-purple;
+  padding: 0.5rem 1rem;
+  border-radius: 3.125rem;
+  color: white;
+  font-weight: 400;
+  text-align: center;
+}
 
-
+.header__logout-pill:hover {
+  background-color: $secondary-purple-light;
+}

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import backArrow from '../../assets/back_arrow.png'
+import backArrow from '../../assets/backarrow.png'
 import profilePic from '../../assets/profile-pic.png'
 import './UserProfile.scss'
 

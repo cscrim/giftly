@@ -1,16 +1,9 @@
 @use "../../styles/partials/variables" as *;
 
-main {
-  background-color: $secondary-purple-light;
-  min-height: 100vh;
-  padding: 3rem;
-}
-
 .details__header-container {
   display: flex;
-  padding-left: 4rem;
-  padding-top: 4rem;
   align-items: center;
+  padding-top: 1rem;
 }
 
 .details__title {
@@ -39,7 +32,7 @@ main {
 }
 
 .details__image-container {
-  border: 2px dashed $primary-purple;
+  border: 2px dashed $primary-black;
   border-radius: 5px;
   padding: 1.25rem;
   display: flex;
@@ -59,7 +52,6 @@ main {
   gap: 1.5rem;
   width: 100%;
   max-width: 31.25rem;
-  padding-top: 2rem;
 }
 
 .details__info-group {
@@ -69,7 +61,7 @@ main {
 .details__label {
   font-size: 1.2rem;
   font-weight: 600;
-  color: $primary-purple;
+  color: $primary-black;
   margin-bottom: 0.5rem;
 }
 
@@ -87,7 +79,7 @@ main {
 }
 
 .details__link:hover {
-  color: white;
+  font-weight: 600;
 }
 
 .details__buttons-container {
@@ -95,61 +87,8 @@ main {
   justify-content: center;
   gap: 1.5rem;
   margin-top: 1rem;
-}
-
-.details__button {
-  padding: .625rem 1.25rem;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  text-align: center;
-  width: 25%;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  text-decoration: none;
-}
-
-.details__button.edit-button {
-  background-color: $highlight-purple;
-  border: 2px solid $secondary-purple-light;
-}
-
-.details__button.edit-button:hover {
-  background-color: $secondary-purple-light;
-  border: 2px solid $highlight-purple;
-  color: $highlight-purple;
-}
-
-.details__button.edit-button:active {
-  background-color: $primary-accent-dark;
-}
-
-.details__button.delete-button {
-  background-color: #e53946;
-  color: white;
-  border: 2px solid #d32f2f;
-  border-radius: 5px;
-  padding: .625rem 1.25rem;
-  cursor: pointer;
-  font-size: 1rem;
-  width: 25%;
-  text-align: center;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.details__button.delete-button:hover {
-  background-color: #c62828;
-  border-color: #b71c1c;
-}
-
-.details__button.delete-button:active {
-  background-color: #b71c1c;
-  border-color: #9e1c1c;
-}
-
-.details__button.edit-button {
-  text-decoration: none;
+  width: 100%;
+  padding-bottom: 1rem;
 }
 
 .details__image-placeholder {
@@ -157,3 +96,37 @@ main {
   max-width: 300px;
   object-fit: contain;
 }
+
+.details__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: #000;
+  color: white;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 48%;
+  margin-top: 1rem;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.details-edit-button:hover {
+  background-color: #FFEB3B;
+  color: $primary-black;
+  border: 1px solid $primary-black;
+}
+
+
+
+.details-delete-button:hover {
+  background-color: #c62828;
+  border: 1px solid $primary-black;
+}
+
+
