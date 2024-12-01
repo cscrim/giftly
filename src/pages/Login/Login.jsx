@@ -1,16 +1,15 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-// import logo from '../../assets/giftlylogo2.png';
-import './Login.scss'; 
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Login.scss";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate('/');
+    navigate("/");
   };
 
   return (
@@ -49,4 +48,4 @@ const Login = () => {
   );
 };
 
-export default Login;  
+export default Login;

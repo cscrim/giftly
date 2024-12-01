@@ -1,54 +1,18 @@
-// import { Link } from 'react-router-dom';
-// import logo from '../../assets/giftly_logo.png';
-// import logo2 from '../../assets/giftlylogo2.png';
-// import './Header.scss';
-
-
-// function Header() {
-//   return (
-//     <header className="header__container">
-//       <div className="header__left-container">
-//       <div className="header__logo-container">
-//         <Link to= "/">
-//         <img src={logo2} alt="giftly-brand-logo" className="header__logo" />
-//         </Link> 
-//       </div>
-//       <div className="header__title-container">
-//         <h1 className="header__title">
-//             giftly
-//         </h1>
-//       </div>
-//       </div>
-
-//       <div className="header__right-container">
-//         <Link to="/friends" className="header__friends-link">friends</Link>
-//         <Link to="/login" className="header__logout-pill">logout</Link>
-//       </div>
-
-//     </header>
-//   )
-// }
-
-// export default Header;
-
-
-
-
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import logo2 from '../../assets/giftlylogo2.png';
-import dropdownArrow from '../../assets/dropdown.png';  // Import the dropdown arrow image
-import './Header.scss';
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import logo2 from "../../assets/giftlylogo2.png";
+import dropdownArrow from "../../assets/dropdown.png";
+import "./Header.scss";
 
 function Header() {
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
   const toggleDropdown = () => {
-    setDropdownVisible(prev => !prev);
+    setDropdownVisible((prev) => !prev);
   };
 
   const closeDropdown = () => {
-    setDropdownVisible(false);  
+    setDropdownVisible(false);
   };
 
   return (
@@ -67,18 +31,38 @@ function Header() {
       <div className="header__right-container">
         <div className="header__dropdown">
           <button className="header__dropdown-button" onClick={toggleDropdown}>
-            <img 
-              src={dropdownArrow} 
-              alt="dropdown-arrow" 
-              className={`header__dropdown-icon ${dropdownVisible ? 'rotated' : ''}`} 
+            <img
+              src={dropdownArrow}
+              alt="dropdown-arrow"
+              className={`header__dropdown-icon ${
+                dropdownVisible ? "rotated" : ""
+              }`}
             />
           </button>
 
           {dropdownVisible && (
             <div className="header__dropdown-menu">
-              <Link to="/profile" className="header__dropdown-item" onClick={closeDropdown}>Profile</Link>
-              <Link to="/friends" className="header__dropdown-item" onClick={closeDropdown}>Friends</Link>
-              <Link to="/login" className="header__dropdown-item" onClick={closeDropdown}>Logout</Link>
+              <Link
+                to="/profile"
+                className="header__dropdown-item"
+                onClick={closeDropdown}
+              >
+                Profile
+              </Link>
+              <Link
+                to="/friends"
+                className="header__dropdown-item"
+                onClick={closeDropdown}
+              >
+                Friends
+              </Link>
+              <Link
+                to="/login"
+                className="header__dropdown-item"
+                onClick={closeDropdown}
+              >
+                Logout
+              </Link>
             </div>
           )}
         </div>
@@ -88,54 +72,3 @@ function Header() {
 }
 
 export default Header;
-
-
-
-
-
-// import { Link } from 'react-router-dom';
-// import { useState } from 'react';
-// import logo2 from '../../assets/giftlylogo2.png';
-// import dropdownArrow from '../../assets/dropdown.png';  // Import the dropdown arrow image
-// import './Header.scss';
-
-// function Header() {
-//   const [dropdownVisible, setDropdownVisible] = useState(false);
-
-//   const toggleDropdown = () => {
-//     setDropdownVisible(prev => !prev);
-//   };
-
-//   return (
-//     <header className="header__container">
-//       <div className="header__left-container">
-//         <div className="header__logo-container">
-//           <Link to="/">
-//             <img src={logo2} alt="giftly-brand-logo" className="header__logo" />
-//           </Link>
-//         </div>
-//         <div className="header__title-container">
-//           <h1 className="header__title">giftly</h1>
-//         </div>
-//       </div>
-
-//       <div className="header__right-container">
-//         <div className="header__dropdown">
-//           <button className="header__dropdown-button" onClick={toggleDropdown}>
-//             <img src={dropdownArrow} alt="dropdown-arrow" className="header__dropdown-icon" />
-//           </button>
-
-//           {dropdownVisible && (
-//             <div className="header__dropdown-menu">
-//               <Link to="/profile" className="header__dropdown-item">Profile</Link>
-//               <Link to="/friends" className="header__dropdown-item">Friends</Link>
-//               <Link to="/login" className="header__dropdown-item">Logout</Link>
-//             </div>
-//           )}
-//         </div>
-//       </div>
-//     </header>
-//   );
-// }
-
-// export default Header;

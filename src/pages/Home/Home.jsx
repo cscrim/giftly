@@ -26,40 +26,18 @@ function Home() {
   return (
     <main>
       <section className="profile-container">
-        {/* <Link to="/profile" className="profile__picture-selected">
-          <div className="profile__picture-container">
-            <img src={profilePic} alt="profile" className="courtneys-pic" />
-            <div className="hover-text">
-              <p>profile</p>
-            </div>
-          </div>
-        </Link> */}
-
         <div className="profile__text-container">
           <h1 className="profile__text">My List</h1>
         </div>
 
-
-
         <div className="add-item-container">
           <Link to="/add">
             <button className="add-item-button">+ add item</button>
           </Link>
         </div>
-
       </section>
 
-      {/* <section className="add__item-container">
-        <div className="add-item-container">
-          <Link to="/add">
-            <button className="add-item-button">+ add item</button>
-          </Link>
-        </div>
-      </section> */}
-
       <section className="gifts-container">
-    
-
         <div className="card-container">
           {wishlistItems.map((item) => (
             <Card key={item.item_id} item={item} baseUrl={baseUrl} />

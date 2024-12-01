@@ -9,7 +9,7 @@ function FriendCard({
   purchased,
 }) {
   return (
-    <div className={`friend-card ${purchased ? 'purchased' : ''}`}>
+    <div className={`friend-card ${purchased ? "purchased" : ""}`}>
       <div className="friend-card-image-container">
         <img src={item_img} alt={item_name} className="friend-card-image" />
       </div>

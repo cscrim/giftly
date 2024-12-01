@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "./ItemDeleteModal.scss";
 
 const ItemDeleteModal = ({ isOpen, onClose, onDelete, itemId, itemName }) => {
@@ -23,8 +23,8 @@ const ItemDeleteModal = ({ isOpen, onClose, onDelete, itemId, itemName }) => {
         <div className="modalContent">
           <h1>Delete {itemName}?</h1>
           <h2>
-            Please confirm you'd like to delete the {itemName} from your wishlist.
-            This action cannot be undone.
+            Please confirm you'd like to delete the {itemName} from your
+            wishlist. This action cannot be undone.
           </h2>
         </div>
 

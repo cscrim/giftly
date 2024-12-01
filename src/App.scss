@@ -12,14 +12,11 @@ html {
 }
 
 main {
-    // min-height: 100vh;
     padding: 0 2rem 2rem 2rem;
 }
 
 body {
   background-color: $primary-cream;
-  // font-family: 'Roboto';
-
   -webkit-font-smoothing: antialiased;
 }
 
@@ -28,7 +25,7 @@ h1 {
 }
 
 textarea {
-  font-family: "Roboto";
+  font-family: "Helvetica Neue";
 }
 
 .back-arrow {

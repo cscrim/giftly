@@ -2,21 +2,15 @@ import { Link } from "react-router-dom";
 import "./Card.scss";
 
 const Card = ({ item, baseUrl }) => {
-  const {
-    item_id,
-    item_name,
-    description,
-    price,
-    item_img,
-    purchase_link,
-  } = item;
+  const { item_id, item_name, description, price, item_img, purchase_link } =
+    item;
 
   return (
     <div className="card">
       <Link to={`/details/${item_id}`} className="card-link">
         <div className="card-image-container">
           <img
-            src={`${baseUrl}${item_img}`} // Ensure full URL is used for the image
+            src={`${baseUrl}${item_img}`}
             alt={item_name}
             className="card-image"
           />
